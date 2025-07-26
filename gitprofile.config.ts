@@ -14,7 +14,7 @@ const CONFIG = {
     github: {
       display: true, // Display GitHub projects?
       header: 'Github Projects',
-      mode: 'automatic', // Mode can be: 'automatic' or 'manual'
+      mode: 'manual', // Mode can be: 'automatic' or 'manual'
       automatic: {
         sortBy: 'stars', // Sort projects by 'stars' or 'updated'
         limit: 8, // How many projects to display.
@@ -25,7 +25,7 @@ const CONFIG = {
       },
       manual: {
         // Properties for manually specifying projects
-        projects: ['arifszn/gitprofile', 'arifszn/pandora'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        projects: ['stavspirid/fp-mult-IEEE754-SV', 'stavspirid/HW1-ECE-AUTh','stavspirid/DICD-TUe-VLSI', 'stavspirid/Helmetino', 'gsklaven/MusePath'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
       },
     },
     external: {
@@ -33,19 +33,19 @@ const CONFIG = {
       // To hide the `External Projects` section, keep it empty.
       projects: [
         {
-          title: 'Project Name',
+          title: 'CubeSat Hands-On Workshop - SpaceDot',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
+            'I organized and conducted SpaceDot\'s CubeSat Hands-On workshops for university students, teaching them all about satellite design and development.',
           imageUrl:
-            'https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg',
-          link: 'https://example.com',
+            'https://github.com/stavspirid/portfolio/tree/main/resources/1U_cubesat.png',
+          link: 'https://gitlab.com/acubesat/education/cubesat-workshop',
         },
         {
-          title: 'Project Name',
+          title: 'PRIMAVERA',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
+            'Satellite Mission Phase-0 Design for Venusean Mission during ESA Acadmy\'s Concurrent Engineering Workshop.\n The project\'s paper was accepted at IAC 2025',
           imageUrl:
-            'https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg',
+            'https://github.com/stavspirid/portfolio/tree/main/resources/PRIMAVERA_logo.png',
           link: 'https://example.com',
         },
       ],
@@ -53,9 +53,9 @@ const CONFIG = {
   },
   seo: { title: 'Portfolio of Stavros Spyridopoulos', description: 'Engineering and Space Enthusiast', imageURL: '' },
   social: {
-    linkedin: 'ariful-alam',
-    x: 'arif_szn',
-    mastodon: 'arifszn@mastodon.social',
+    linkedin: 'stavros-spiridopoulos-669259238',
+    x: '',
+    mastodon: '',
     researchGate: '',
     facebook: '',
     instagram: '',
@@ -65,49 +65,38 @@ const CONFIG = {
     udemy: '',
     dribbble: '',
     behance: '',
-    medium: 'arifszn',
-    dev: 'arifszn',
+    medium: '',
+    dev: '',
     stackoverflow: '', // example: '1/jeff-atwood'
     discord: '',
     telegram: '',
-    website: 'https://www.arifszn.com',
+    website: '',
     phone: '',
-    email: 'arifulalamszn@gmail.com',
+    email: 'stavspirid@gmail.com',
   },
   resume: {
     fileUrl:
       'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
-    'PHP',
-    'Laravel',
-    'JavaScript',
-    'React.js',
-    'Node.js',
-    'Nest.js',
-    'MySQL',
-    'PostgreSQL',
+    'C/C++',
+    'Verilog',
+    'SystemVerilog',
+    'Python',
+    'MATLAB',
+    'Bash/Shell',
+    'Virtuoso',
+    'KiCad',
     'Git',
     'Docker',
-    'PHPUnit',
-    'CSS',
-    'Antd',
-    'Tailwind',
   ],
   experiences: [
     {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'September 2021',
+      company: 'SpaceDot',
+      position: 'Embedded Softwate Engineer',
+      from: 'October 2023',
       to: 'Present',
-      companyLink: 'https://example.com',
-    },
-    {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'July 2019',
-      to: 'August 2021',
-      companyLink: 'https://example.com',
+      companyLink: 'https://www.linkedin.com/company/spacedot/',
     },
   ],
   certifications: [
@@ -120,16 +109,16 @@ const CONFIG = {
   ],
   educations: [
     {
-      institution: 'Institution Name',
-      degree: 'Degree',
-      from: '2015',
-      to: '2019',
+      institution: 'Aristotle University of Thessaloniki',
+      degree: 'Electrical and Computer Engineering',
+      from: '2021',
+      to: '2026',
     },
     {
-      institution: 'Institution Name',
-      degree: 'Degree',
-      from: '2012',
-      to: '2014',
+      institution: 'Eindhoven University of Technology',
+      degree: 'Electrical Engineering - Erasmus+ Exchange Studentship',
+      from: 'September 2024',
+      to: 'February 2025',
     },
   ],
   publications: [
@@ -155,7 +144,7 @@ const CONFIG = {
   // Display articles from your medium or dev account. (Optional)
   blog: {
     source: 'dev', // medium | dev
-    username: 'arifszn', // to hide blog section, keep it empty
+    username: '', // to hide blog section, keep it empty
     limit: 2, // How many articles to display. Max is 10.
   },
   googleAnalytics: {
