@@ -94,8 +94,7 @@ const ClickableTitleItem: React.FC<{
   icon: React.ReactNode;
   title: React.ReactNode;
   link?: string;
-  skeleton?: boolean;
-}> = ({ icon, title, link, skeleton = false }) => {
+}> = ({ icon, title, link }) => {
   return (
     <div className="flex justify-start py-2 px-1 items-center">
       <div className="grow font-medium gap-2 flex items-center my-1">
