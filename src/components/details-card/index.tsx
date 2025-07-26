@@ -21,7 +21,7 @@ import {
 import { FaSquareThreads } from 'react-icons/fa6';
 import { MdLocationOn } from 'react-icons/md';
 import { RiDiscordFill, RiMailFill, RiPhoneFill } from 'react-icons/ri';
-import { SiResearchgate, SiX, SiUdemy } from 'react-icons/si';
+import { SiResearchgate, SiX, SiUdemy, SiGitlab, SiLeetcode } from 'react-icons/si';
 import { Profile } from '../../interfaces/profile';
 import {
   SanitizedGithub,
@@ -170,6 +170,10 @@ const OrganizationItem: React.FC<{
 
 /**
  * Renders the details card component.
+ * 
+ * Note: Make sure to add 'gitlab' and 'leetcode' to your SanitizedSocial interface:
+ * - gitlab: string; // GitLab username
+ * - leetcode: string; // LeetCode username
  *
  * @param {Object} profile - The profile object.
  * @param {boolean} loading - Indicates whether the data is loading.
@@ -222,12 +226,25 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   }
                 />
               )}
-              <ListItem
+              <ClickableTitleItem
                 icon={<AiFillGithub />}
-                title="GitHub:"
-                value={github.username}
+                title="GitHub"
                 link={`https://github.com/${github.username}`}
               />
+              {social?.gitlab && (
+                <ClickableTitleItem
+                  icon={<SiGitlab />}
+                  title="GitLab"
+                  link={`https://gitlab.com/${social.gitlab}`}
+                />
+              )}
+              {social?.leetcode && (
+                <ClickableTitleItem
+                  icon={<SiLeetcode />}
+                  title="LeetCode"
+                  link={`https://leetcode.com/${social.leetcode}`}
+                />
+              )}
               {social?.researchGate && (
                 <ClickableTitleItem
                   icon={<SiResearchgate />}
