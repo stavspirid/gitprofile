@@ -25,7 +25,14 @@ const CONFIG = {
       },
       manual: {
         // Properties for manually specifying projects
-        projects: ['gsklaven/MusePath', 'stavspirid/Helmetino', 'stavspirid/DICD-TUe-VLSI', 'stavspirid/HW1-ECE-AUTh', 'stavspirid/fp-mult-IEEE754-SV'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        // The order of repositories in this array determines the display order.
+        projects: [
+          'gsklaven/MusePath',
+          'stavspirid/Helmetino',
+          'stavspirid/DICD-TUe-VLSI',
+          'stavspirid/HW1-ECE-AUTh',
+          'stavspirid/fp-mult-IEEE754-SV',
+        ], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
       },
     },
     external: {
@@ -45,7 +52,7 @@ const CONFIG = {
           description:
             'Satellite Mission Phase-0 Design for Venusean Mission during ESA Acadmy\'s Concurrent Engineering Workshop.\n The project\'s paper was accepted at IAC 2025',
           imageUrl:
-            "https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/PRIMAVERA_logo.png",
+            'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/PRIMAVERA_logo.jpg',
           link: 'https://example.com',
         },
       ],
@@ -54,6 +61,7 @@ const CONFIG = {
   seo: { title: 'Portfolio of Stavros Spyridopoulos', description: 'Engineering and Space Enthusiast', imageURL: '' },
   social: {
     linkedin: 'stavros-spiridopoulos',
+    gitlab: 'stavspirid',
     x: '',
     mastodon: '',
     researchGate: '',
