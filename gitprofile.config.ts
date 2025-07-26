@@ -27,11 +27,11 @@ const CONFIG = {
         // Properties for manually specifying projects
         // The order of repositories in this array determines the display order.
         projects: [
-          'gsklaven/MusePath',
-          'stavspirid/Helmetino',
-          'stavspirid/DICD-TUe-VLSI',
-          'stavspirid/HW1-ECE-AUTh',
           'stavspirid/fp-mult-IEEE754-SV',
+          'stavspirid/HW1-ECE-AUTh',
+          'stavspirid/DICD-TUe-VLSI',
+          'stavspirid/Helmetino',
+          'gsklaven/MusePath',
         ], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
       },
     },
@@ -60,7 +60,7 @@ const CONFIG = {
   },
   seo: { title: 'Portfolio of Stavros Spyridopoulos', description: 'Engineering and Space Enthusiast', imageURL: '' },
   social: {
-    linkedin: 'stavros-spiridopoulos',
+    linkedin: 'stavros-spiridopoulos-669259238',
     gitlab: 'stavspirid',
     x: '',
     mastodon: '',

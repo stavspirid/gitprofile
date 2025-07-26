@@ -67,9 +67,11 @@ const GitProfile = ({ config }: { config: Config }) => {
 
         return repoData.items;
       } else {
+        // MANUAL MODE - FIXED VERSION
         if (sanitizedConfig.projects.github.manual.projects.length === 0) {
           return [];
         }
+        
         const repos = sanitizedConfig.projects.github.manual.projects
           .map((project) => `+repo:${project}`)
           .join('');
@@ -81,7 +83,15 @@ const GitProfile = ({ config }: { config: Config }) => {
         });
         const repoData = repoResponse.data;
 
-        return repoData.items;
+        // 🔥 HERE'S THE FIX: Sort by your manual order!
+        const manualOrder = sanitizedConfig.projects.github.manual.projects;
+        const sortedRepos = repoData.items.sort((a: any, b: any) => {
+          const indexA = manualOrder.indexOf(a.full_name);
+          const indexB = manualOrder.indexOf(b.full_name);
+          return indexA - indexB;
+        });
+
+        return sortedRepos;
       }
     },
     [
