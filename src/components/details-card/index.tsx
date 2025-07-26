@@ -170,11 +170,6 @@ const OrganizationItem: React.FC<{
 
 /**
  * Renders the details card component.
- * 
- * Note: Make sure to add 'gitlab' and 'leetcode' to your SanitizedSocial interface:
- * - gitlab: string; // GitLab username
- * - leetcode: string; // LeetCode username
- *
  * @param {Object} profile - The profile object.
  * @param {boolean} loading - Indicates whether the data is loading.
  * @param {Object} social - The social object.
@@ -242,7 +237,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 <ClickableTitleItem
                   icon={<SiLeetcode />}
                   title="LeetCode"
-                  link={`https://leetcode.com/${social.leetcode}`}
+                  link={`https://leetcode.com/u/${social.leetcode}`}
                 />
               )}
               {social?.researchGate && (

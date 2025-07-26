@@ -62,7 +62,7 @@ const CONFIG = {
   social: {
     linkedin: 'stavros-spiridopoulos-669259238',
     gitlab: 'stavspirid',
-    leetcode: 'your-leetcode-username',
+    leetcode: 'stavspirid',
     github: 'stavspirid',
     x: '',
     mastodon: '',
