@@ -25,7 +25,7 @@ const CONFIG = {
       },
       manual: {
         // Properties for manually specifying projects
-        projects: ['stavspirid/fp-mult-IEEE754-SV', 'stavspirid/HW1-ECE-AUTh','stavspirid/DICD-TUe-VLSI', 'stavspirid/Helmetino', 'gsklaven/MusePath'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
+        projects: ['gsklaven/MusePath', 'stavspirid/Helmetino', 'stavspirid/DICD-TUe-VLSI', 'stavspirid/HW1-ECE-AUTh', 'stavspirid/fp-mult-IEEE754-SV'], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
       },
     },
     external: {
@@ -33,11 +33,11 @@ const CONFIG = {
       // To hide the `External Projects` section, keep it empty.
       projects: [
         {
-          title: 'CubeSat Hands-On Workshop - SpaceDot',
+          title: 'CubeSat Hands-On Workshop',
           description:
             'I organized and conducted SpaceDot\'s CubeSat Hands-On workshops for university students, teaching them all about satellite design and development.',
           imageUrl:
-            'https://github.com/stavspirid/portfolio/tree/main/resources/1U_cubesat.png',
+            'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/1U_cubesat.png',
           link: 'https://gitlab.com/acubesat/education/cubesat-workshop',
         },
         {
@@ -45,7 +45,7 @@ const CONFIG = {
           description:
             'Satellite Mission Phase-0 Design for Venusean Mission during ESA Acadmy\'s Concurrent Engineering Workshop.\n The project\'s paper was accepted at IAC 2025',
           imageUrl:
-            'https://github.com/stavspirid/portfolio/tree/main/resources/PRIMAVERA_logo.png',
+            'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/PRIMAVERA_logo.png',
           link: 'https://example.com',
         },
       ],
