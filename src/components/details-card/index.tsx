@@ -90,6 +90,34 @@ const ListItem: React.FC<{
   );
 };
 
+const ClickableTitleItem: React.FC<{
+  icon: React.ReactNode;
+  title: React.ReactNode;
+  link?: string;
+  skeleton?: boolean;
+}> = ({ icon, title, link, skeleton = false }) => {
+  return (
+    <div className="flex justify-start py-2 px-1 items-center">
+      <div className="grow font-medium gap-2 flex items-center my-1">
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 hover:text-blue-600 transition-colors"
+          >
+            {icon} {title}
+          </a>
+        ) : (
+          <>
+            {icon} {title}
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const OrganizationItem: React.FC<{
   icon: React.ReactNode;
   title: React.ReactNode;
@@ -202,132 +230,114 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 link={`https://github.com/${github.username}`}
               />
               {social?.researchGate && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<SiResearchgate />}
-                  title="ResearchGate:"
-                  value={social.researchGate}
+                  title="ResearchGate"
                   link={`https://www.researchgate.net/profile/${social.researchGate}`}
                 />
               )}
               {social?.x && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<SiX />}
-                  title="X:"
-                  value={social.x}
+                  title="X"
                   link={`https://x.com/${social.x}`}
                 />
               )}
               {social?.mastodon && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaMastodon />}
-                  title="Mastodon:"
-                  value={getFormattedMastodonValue(social.mastodon, false)}
+                  title="Mastodon"
                   link={getFormattedMastodonValue(social.mastodon, true)}
                 />
               )}
               {social?.linkedin && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaLinkedin />}
-                  title="LinkedIn:"
-                  value={social.linkedin}
+                  title="LinkedIn"
                   link={`https://www.linkedin.com/in/${social.linkedin}`}
                 />
               )}
               {social?.dribbble && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<CgDribbble />}
-                  title="Dribbble:"
-                  value={social.dribbble}
+                  title="Dribbble"
                   link={`https://dribbble.com/${social.dribbble}`}
                 />
               )}
               {social?.behance && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaBehanceSquare />}
-                  title="Behance:"
-                  value={social.behance}
+                  title="Behance"
                   link={`https://www.behance.net/${social.behance}`}
                 />
               )}
               {social?.facebook && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaFacebook />}
-                  title="Facebook:"
-                  value={social.facebook}
+                  title="Facebook"
                   link={`https://www.facebook.com/${social.facebook}`}
                 />
               )}
               {social?.instagram && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<AiFillInstagram />}
-                  title="Instagram:"
-                  value={social.instagram}
+                  title="Instagram"
                   link={`https://www.instagram.com/${social.instagram}`}
                 />
               )}
               {social?.reddit && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaReddit />}
-                  title="Reddit:"
-                  value={social.reddit}
+                  title="Reddit"
                   link={`https://www.reddit.com/user/${social.reddit}`}
                 />
               )}
               {social?.threads && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaSquareThreads />}
-                  title="Threads:"
-                  value={social.threads}
+                  title="Threads"
                   link={`https://www.threads.net/@${social.threads.replace('@', '')}`}
                 />
               )}
               {social?.youtube && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaYoutube />}
-                  title="YouTube:"
-                  value={`@${social.youtube}`}
+                  title="YouTube"
                   link={`https://www.youtube.com/@${social.youtube}`}
                 />
               )}
               {social?.udemy && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<SiUdemy />}
-                  title="Udemy:"
-                  value={social.udemy}
+                  title="Udemy"
                   link={`https://www.udemy.com/user/${social.udemy}`}
                 />
               )}
               {social?.medium && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<AiFillMediumSquare />}
-                  title="Medium:"
-                  value={social.medium}
+                  title="Medium"
                   link={`https://medium.com/@${social.medium}`}
                 />
               )}
               {social?.dev && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaDev />}
-                  title="Dev:"
-                  value={social.dev}
+                  title="Dev"
                   link={`https://dev.to/${social.dev}`}
                 />
               )}
               {social?.stackoverflow && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaStackOverflow />}
-                  title="Stack Overflow:"
-                  value={social.stackoverflow.split('/').slice(-1)}
+                  title="Stack Overflow"
                   link={`https://stackoverflow.com/users/${social.stackoverflow}`}
                 />
               )}
               {social?.website && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaGlobe />}
-                  title="Website:"
-                  value={social.website
-                    .replace('https://', '')
-                    .replace('http://', '')}
+                  title="Website"
                   link={
                     !social.website.startsWith('http')
                       ? `http://${social.website}`
@@ -336,10 +346,9 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 />
               )}
               {social?.telegram && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<FaTelegram />}
                   title="Telegram"
-                  value={social.telegram}
                   link={`https://t.me/${social.telegram}`}
                 />
               )}
@@ -360,10 +369,9 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 />
               )}
               {social?.discord && (
-                <ListItem
+                <ClickableTitleItem
                   icon={<RiDiscordFill />}
-                  title="Discord:"
-                  value={social.discord}
+                  title="Discord"
                   link={`https://discord.com/app`}
                 />
               )}

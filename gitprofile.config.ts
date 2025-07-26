@@ -101,7 +101,7 @@ const CONFIG = {
   experiences: [
     {
       company: 'SpaceDot',
-      position: 'Embedded Softwate Engineer',
+      position: 'Embedded Software Engineer',
       from: 'October 2023',
       to: 'Present',
       companyLink: 'https://www.linkedin.com/company/spacedot/',
