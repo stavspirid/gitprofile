@@ -96,21 +96,22 @@ const ClickableTitleItem: React.FC<{
   link?: string;
 }> = ({ icon, title, link }) => {
   return (
-    <div className="flex flex-col items-center p-1.5 text-center"> {/* Reduced from p-3 to p-1.5 */}
-      <div className="mb-1"> {/* Reduced from mb-2 to mb-1 */}
+    <div className="flex flex-col items-center p-1.5 text-center">
+      <div className="mb-1">
         {link ? (
           <a
             href={link}
             target="_blank"
             rel="noreferrer"
-            className="flex flex-col items-center gap-1 hover:text-blue-600 transition-colors"> {/* Reduced from gap-2 to gap-1 */}
-            <div className="text-xl">{icon}</div> {/* Reduced from text-2xl to text-xl */}
-            <span className="text-xs font-medium">{title}</span> {/* Reduced from text-sm to text-xs */}
+            className="flex flex-col items-center gap-1 hover:text-blue-600 transition-colors"
+          >
+            <div className="text-xl">{icon}</div>
+            <span className="text-xs font-medium">{title}</span>
           </a>
         ) : (
-          <div className="flex flex-col items-center gap-1"> {/* Reduced from gap-2 to gap-1 */}
-            <div className="text-xl">{icon}</div> {/* Reduced from text-2xl to text-xl */}
-            <span className="text-xs font-medium">{title}</span> {/* Reduced from text-sm to text-xs */}
+          <div className="flex flex-col items-center gap-1">
+            <div className="text-xl">{icon}</div>
+            <span className="text-xs font-medium">{title}</span>
           </div>
         )}
       </div>
@@ -209,13 +210,6 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
             renderSkeleton()
           ) : (
             <Fragment>
-              {profile.location && (
-                <ListItem
-                  icon={<MdLocationOn />}
-                  title="Based in:"
-                  value={profile.location}
-                />
-              )}
               {profile.company && (
                 <OrganizationItem
                   icon={<FaBuilding />}
@@ -229,10 +223,36 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 />
               )}
               
+              {/* Location and Contact Information - Moved before Social */}
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-3">Contact</h3>
+                <ListItem
+                  icon={<MdLocationOn />}
+                  title="Based in:"
+                  value="Thessaloniki, Greece"
+                />
+                {social?.email && (
+                  <ListItem
+                    icon={<RiMailFill />}
+                    title="Email:"
+                    value={social.email}
+                    link={`mailto:${social.email}`}
+                  />
+                )}
+                {social?.phone && (
+                  <ListItem
+                    icon={<RiPhoneFill />}
+                    title="Phone:"
+                    value={social.phone}
+                    link={`tel:${social.phone}`}
+                  />
+                )}
+              </div>
+              
               {/* Social Media Grid */}
               <div className="mt-4">
                 <h3 className="text-lg font-semibold mb-3">Social</h3>
-                <div className="grid grid-cols-4 gap-1.5">
+                <div className="grid grid-cols-4 gap-1">
                   <ClickableTitleItem
                     icon={<AiFillGithub />}
                     title="GitHub"
@@ -383,27 +403,6 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                     />
                   )}
                 </div>
-              </div>
-              
-              {/* Contact Information */}
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-3">Contact</h3>
-                {social?.phone && (
-                  <ListItem
-                    icon={<RiPhoneFill />}
-                    title="Phone:"
-                    value={social.phone}
-                    link={`tel:${social.phone}`}
-                  />
-                )}
-                {social?.email && (
-                  <ListItem
-                    icon={<RiMailFill />}
-                    title="Email:"
-                    value={social.email}
-                    link={`mailto:${social.email}`}
-                  />
-                )}
               </div>
             </Fragment>
           )}
