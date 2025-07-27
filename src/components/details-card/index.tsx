@@ -96,22 +96,21 @@ const ClickableTitleItem: React.FC<{
   link?: string;
 }> = ({ icon, title, link }) => {
   return (
-    <div className="flex flex-col items-center p-3 text-center">
-      <div className="mb-2">
+    <div className="flex flex-col items-center p-1.5 text-center"> {/* Reduced from p-3 to p-1.5 */}
+      <div className="mb-1"> {/* Reduced from mb-2 to mb-1 */}
         {link ? (
           <a
             href={link}
             target="_blank"
             rel="noreferrer"
-            className="flex flex-col items-center gap-2 hover:text-blue-600 transition-colors"
-          >
-            <div className="text-2xl">{icon}</div>
-            <span className="text-sm font-medium">{title}</span>
+            className="flex flex-col items-center gap-1 hover:text-blue-600 transition-colors"> {/* Reduced from gap-2 to gap-1 */}
+            <div className="text-xl">{icon}</div> {/* Reduced from text-2xl to text-xl */}
+            <span className="text-xs font-medium">{title}</span> {/* Reduced from text-sm to text-xs */}
           </a>
         ) : (
-          <div className="flex flex-col items-center gap-2">
-            <div className="text-2xl">{icon}</div>
-            <span className="text-sm font-medium">{title}</span>
+          <div className="flex flex-col items-center gap-1"> {/* Reduced from gap-2 to gap-1 */}
+            <div className="text-xl">{icon}</div> {/* Reduced from text-2xl to text-xl */}
+            <span className="text-xs font-medium">{title}</span> {/* Reduced from text-sm to text-xs */}
           </div>
         )}
       </div>
