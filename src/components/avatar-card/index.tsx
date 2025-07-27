@@ -70,12 +70,12 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
           </div>
         )}
         <div className="text-center mx-auto px-8">
-          <h5 className="font-bold text-2xl">
+          <h5 className="font-bold text-2xl mb-2">
             {loading || !profile ? (
               skeleton({ widthCls: 'w-48', heightCls: 'h-8' })
             ) : (
-              <span className="text-base-content opacity-70">
-                {profile.name}
+              <span className="text-base-content">
+                Stavros Spyridopoulos
               </span>
             )}
           </h5>
