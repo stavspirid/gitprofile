@@ -170,6 +170,11 @@ const OrganizationItem: React.FC<{
 
 /**
  * Renders the details card component.
+ * 
+ * Note: Make sure to add 'gitlab' and 'leetcode' to your SanitizedSocial interface:
+ * - gitlab: string; // GitLab username
+ * - leetcode: string; // LeetCode username
+ *
  * @param {Object} profile - The profile object.
  * @param {boolean} loading - Indicates whether the data is loading.
  * @param {Object} social - The social object.
@@ -177,6 +182,12 @@ const OrganizationItem: React.FC<{
  * @return {JSX.Element} The details card component.
  */
 const DetailsCard = ({ profile, loading, social, github }: Props) => {
+  // Temporary debug logs - remove after fixing
+  console.log('=== DETAILS CARD RENDERED ===');
+  console.log('Social object:', social);
+  console.log('Has gitlab?', !!social?.gitlab);
+  console.log('Has leetcode?', !!social?.leetcode);
+  
   const renderSkeleton = () => {
     const array = [];
     for (let index = 0; index < 4; index++) {
@@ -197,6 +208,11 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
   return (
     <div className="card shadow-lg card-sm bg-base-100">
       <div className="card-body">
+        {/* Temporary debug info - remove after fixing */}
+        <div style={{background: 'red', color: 'white', padding: '10px', marginBottom: '10px'}}>
+          DEBUG: GitLab = {social?.gitlab || 'MISSING'}, LeetCode = {social?.leetcode || 'MISSING'}
+        </div>
+        
         <div className="text-base-content">
           {loading || !profile ? (
             renderSkeleton()
@@ -226,18 +242,18 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 title="GitHub"
                 link={`https://github.com/${github.username}`}
               />
-              {social?.gitlab && (
+              {social?.gitlab && social.gitlab.trim() && (
                 <ClickableTitleItem
                   icon={<SiGitlab />}
                   title="GitLab"
                   link={`https://gitlab.com/${social.gitlab}`}
                 />
               )}
-              {social?.leetcode && (
+              {social?.leetcode && social.leetcode.trim() && (
                 <ClickableTitleItem
                   icon={<SiLeetcode />}
                   title="LeetCode"
-                  link={`https://leetcode.com/u/${social.leetcode}`}
+                  link={`https://leetcode.com/${social.leetcode}`}
                 />
               )}
               {social?.researchGate && (
