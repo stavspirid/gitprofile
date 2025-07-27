@@ -105,40 +105,66 @@ const GitProfile = ({ config }: { config: Config }) => {
     ],
   );
 
+// 1. First, update your sanitized-config interface to include avatar
+// In src/interfaces/sanitized-config.tsx - Add this to SanitizedConfig interface:
+
+export interface SanitizedConfig {
+  github: SanitizedGithub;
+  avatar?: string; // ADD THIS LINE
+  projects: SanitizedProjects;
+  seo: SanitizedSEO;
+  social: SanitizedSocial;
+  resume: SanitizedResume;
+  skills: Array<string>;
+  experiences: Array<SanitizedExperience>;
+  educations: Array<SanitizedEducation>;
+  certifications: Array<SanitizedCertification>;
+  publications: Array<SanitizedPublication>;
+  googleAnalytics: SanitizedGoogleAnalytics;
+  hotjar: SanitizedHotjar;
+  blog: SanitizedBlog;
+  themeConfig: SanitizedThemeConfig;
+  footer?: string;
+  enablePWA: boolean;
+}
+
+// 2. Update the GitProfile component loadData function
+// In src/components/gitprofile.tsx - Replace the loadData function:
+
   const loadData = useCallback(async () => {
-  try {
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    const response = await axios.get(
-      `https://api.github.com/users/${sanitizedConfig.github.username}`,
-    );
-    const data = response.data;
+      const response = await axios.get(
+        `https://api.github.com/users/${sanitizedConfig.github.username}`,
+      );
+      const data = response.data;
 
-    setProfile({
-      // Use custom avatar if provided in config, otherwise use GitHub avatar
-      avatar: config.avatar || data.avatar_url,
-      name: data.name || ' ',
-      bio: data.bio || '',
-      location: data.location || '',
-      company: data.company || '',
-    });
+      setProfile({
+        // Use custom avatar from sanitizedConfig if provided, otherwise use GitHub avatar
+        avatar: sanitizedConfig.avatar || data.avatar_url,
+        name: data.name || ' ',
+        bio: data.bio || '',
+        location: data.location || '',
+        company: data.company || '',
+      });
 
-    if (!sanitizedConfig.projects.github.display) {
-      return;
+      if (!sanitizedConfig.projects.github.display) {
+        return;
+      }
+
+      setGithubProjects(await getGithubProjects(data.public_repos));
+    } catch (error) {
+      handleError(error as AxiosError | Error);
+    } finally {
+      setLoading(false);
     }
-
-    setGithubProjects(await getGithubProjects(data.public_repos));
-  } catch (error) {
-    handleError(error as AxiosError | Error);
-  } finally {
-    setLoading(false);
-  }
-}, [
-  sanitizedConfig.github.username,
-  sanitizedConfig.projects.github.display,
-  getGithubProjects,
-  config.avatar, // Add this dependency
-]);
+  }, [
+    sanitizedConfig.github.username,
+    sanitizedConfig.projects.github.display,
+    sanitizedConfig.avatar, // Add this dependency
+    getGithubProjects,
+  ]);
 
   useEffect(() => {
     if (Object.keys(sanitizedConfig).length === 0) {
