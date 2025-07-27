@@ -232,8 +232,8 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
               
               {/* Social Media Grid */}
               <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-3">Social Media</h3>
-                <div className="grid grid-cols-3 gap-2">
+                <h3 className="text-lg font-semibold mb-3">Social</h3>
+                <div className="grid grid-cols-4 gap-2">
                   <ClickableTitleItem
                     icon={<AiFillGithub />}
                     title="GitHub"
