@@ -106,37 +106,39 @@ const GitProfile = ({ config }: { config: Config }) => {
   );
 
   const loadData = useCallback(async () => {
-    try {
-      setLoading(true);
+  try {
+    setLoading(true);
 
-      const response = await axios.get(
-        `https://api.github.com/users/${sanitizedConfig.github.username}`,
-      );
-      const data = response.data;
+    const response = await axios.get(
+      `https://api.github.com/users/${sanitizedConfig.github.username}`,
+    );
+    const data = response.data;
 
-      setProfile({
-        avatar: data.avatar_url,
-        name: data.name || ' ',
-        bio: data.bio || '',
-        location: data.location || '',
-        company: data.company || '',
-      });
+    setProfile({
+      // Use custom avatar if provided in config, otherwise use GitHub avatar
+      avatar: config.avatar || data.avatar_url,
+      name: data.name || ' ',
+      bio: data.bio || '',
+      location: data.location || '',
+      company: data.company || '',
+    });
 
-      if (!sanitizedConfig.projects.github.display) {
-        return;
-      }
-
-      setGithubProjects(await getGithubProjects(data.public_repos));
-    } catch (error) {
-      handleError(error as AxiosError | Error);
-    } finally {
-      setLoading(false);
+    if (!sanitizedConfig.projects.github.display) {
+      return;
     }
-  }, [
-    sanitizedConfig.github.username,
-    sanitizedConfig.projects.github.display,
-    getGithubProjects,
-  ]);
+
+    setGithubProjects(await getGithubProjects(data.public_repos));
+  } catch (error) {
+    handleError(error as AxiosError | Error);
+  } finally {
+    setLoading(false);
+  }
+}, [
+  sanitizedConfig.github.username,
+  sanitizedConfig.projects.github.display,
+  getGithubProjects,
+  config.avatar, // Add this dependency
+]);
 
   useEffect(() => {
     if (Object.keys(sanitizedConfig).length === 0) {
@@ -214,6 +216,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                     loading={loading}
                     avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
                     resumeFileUrl={sanitizedConfig.resume.fileUrl}
+                    customAvatar="https://media.licdn.com/dms/image/v2/D4D03AQH-tCC8kqw4Cw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1728238004607?e=1756339200&v=beta&t=D_P-B3SBnTR4XPb8ugWxvUm-josizgxpoDD8C_lUDkw"
                   />
                   <DetailsCard
                     profile={profile}

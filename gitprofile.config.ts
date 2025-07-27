@@ -5,7 +5,7 @@ const CONFIG = {
     username: 'stavspirid', // Your GitHub org/user name. (This is the only required config)
   },
   // Add custom avatar URL
-  avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQH-tCC8kqw4Cw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1728238004607?e=1756339200&v=beta&t=D_P-B3SBnTR4XPb8ugWxvUm-josizgxpoDD8C_lUDkw',
+  avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQH-tCC8kqw4Cw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1728238004588?e=1756339200&v=beta&t=D5fvKhseHRlqQF2VSvgCpchpMGzV2piiX_dCLYkfBbA',
   /**
    * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,

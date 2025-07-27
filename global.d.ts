@@ -321,6 +321,11 @@ interface Config {
   github: Github;
 
   /**
+   * Custom avatar URL - if provided, will override GitHub profile picture
+   */
+  avatar?: string;
+
+  /**
    * Vite's base url
    */
   base?: string;

@@ -8,6 +8,7 @@ interface AvatarCardProps {
   loading: boolean;
   avatarRing: boolean;
   resumeFileUrl?: string;
+  customAvatar?: string; // Add custom avatar prop
 }
 
 /**
@@ -16,6 +17,7 @@ interface AvatarCardProps {
  * @param loading - A boolean indicating if the profile is loading.
  * @param avatarRing - A boolean indicating if the avatar should have a ring.
  * @param resumeFileUrl - The URL of the resume file.
+ * @param customAvatar - Optional custom avatar URL to override profile avatar.
  * @returns JSX element representing the AvatarCard.
  */
 const AvatarCard: React.FC<AvatarCardProps> = ({
@@ -23,7 +25,16 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
   loading,
   avatarRing,
   resumeFileUrl,
+  customAvatar,
 }): React.JSX.Element => {
+  
+  // Determine which avatar to use (priority: customAvatar > profile.avatar > FALLBACK_IMAGE)
+  const getAvatarSrc = () => {
+    if (customAvatar) return customAvatar;
+    if (profile?.avatar) return profile.avatar;
+    return FALLBACK_IMAGE;
+  };
+
   return (
     <div className="card shadow-lg card-sm bg-base-100">
       <div className="grid place-items-center py-8">
@@ -46,17 +57,15 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
                   : ''
               }`}
             >
-              {
-                <LazyImage
-                  src={profile.avatar ? profile.avatar : FALLBACK_IMAGE}
-                  alt={profile.name}
-                  placeholder={skeleton({
-                    widthCls: 'w-full',
-                    heightCls: 'h-full',
-                    shape: '',
-                  })}
-                />
-              }
+              <LazyImage
+                src={getAvatarSrc()}
+                alt={profile.name}
+                placeholder={skeleton({
+                  widthCls: 'w-full',
+                  heightCls: 'h-full',
+                  shape: '',
+                })}
+              />
             </div>
           </div>
         )}
