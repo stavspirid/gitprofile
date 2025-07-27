@@ -54,7 +54,7 @@ const GitProfile = ({ config }: { config: Config }) => {
 
         const excludeRepo =
           sanitizedConfig.projects.github.automatic.exclude.projects
-            .map((project) => `+-repo:${project}`)
+            .map((project: string) => `+-repo:${project}`)
             .join('');
 
         const query = `user:${sanitizedConfig.github.username}+fork:${!sanitizedConfig.projects.github.automatic.exclude.forks}${excludeRepo}`;
@@ -73,7 +73,7 @@ const GitProfile = ({ config }: { config: Config }) => {
         }
         
         const repos = sanitizedConfig.projects.github.manual.projects
-          .map((project) => `+repo:${project}`)
+          .map((project: string) => `+repo:${project}`)
           .join('');
 
         const url = `https://api.github.com/search/repositories?q=${repos}+fork:true&type=Repositories`;
@@ -104,32 +104,6 @@ const GitProfile = ({ config }: { config: Config }) => {
       sanitizedConfig.projects.github.automatic.exclude.projects,
     ],
   );
-
-// 1. First, update your sanitized-config interface to include avatar
-// In src/interfaces/sanitized-config.tsx - Add this to SanitizedConfig interface:
-
-export interface SanitizedConfig {
-  github: SanitizedGithub;
-  avatar?: string; // ADD THIS LINE
-  projects: SanitizedProjects;
-  seo: SanitizedSEO;
-  social: SanitizedSocial;
-  resume: SanitizedResume;
-  skills: Array<string>;
-  experiences: Array<SanitizedExperience>;
-  educations: Array<SanitizedEducation>;
-  certifications: Array<SanitizedCertification>;
-  publications: Array<SanitizedPublication>;
-  googleAnalytics: SanitizedGoogleAnalytics;
-  hotjar: SanitizedHotjar;
-  blog: SanitizedBlog;
-  themeConfig: SanitizedThemeConfig;
-  footer?: string;
-  enablePWA: boolean;
-}
-
-// 2. Update the GitProfile component loadData function
-// In src/components/gitprofile.tsx - Replace the loadData function:
 
   const loadData = useCallback(async () => {
     try {
@@ -162,7 +136,7 @@ export interface SanitizedConfig {
   }, [
     sanitizedConfig.github.username,
     sanitizedConfig.projects.github.display,
-    sanitizedConfig.avatar, // Add this dependency
+    sanitizedConfig.avatar,
     getGithubProjects,
   ]);
 
@@ -242,7 +216,6 @@ export interface SanitizedConfig {
                     loading={loading}
                     avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
                     resumeFileUrl={sanitizedConfig.resume.fileUrl}
-                    customAvatar="https://media.licdn.com/dms/image/v2/D4D03AQH-tCC8kqw4Cw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1728238004607?e=1756339200&v=beta&t=D_P-B3SBnTR4XPb8ugWxvUm-josizgxpoDD8C_lUDkw"
                   />
                   <DetailsCard
                     profile={profile}

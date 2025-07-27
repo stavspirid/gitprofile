@@ -32,7 +32,7 @@ export const getSanitizedConfig = (
       github: {
         username: config.github.username,
       },
-      avatar: config?.avatar, // ADD THIS LINE
+      avatar: config?.avatar,
       projects: {
         github: {
           display: config?.projects?.github?.display ?? true,
