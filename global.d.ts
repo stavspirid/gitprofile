@@ -326,6 +326,11 @@ interface Config {
   avatar?: string;
 
   /**
+   * Bio
+   */
+  bio?: string;
+
+  /**
    * Vite's base url
    */
   base?: string;

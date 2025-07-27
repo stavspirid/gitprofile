@@ -129,6 +129,7 @@ export interface SanitizedThemeConfig {
 export interface SanitizedConfig {
   github: SanitizedGithub;
   avatar?: string;
+  bio?: string;
   projects: SanitizedProjects;
   seo: SanitizedSEO;
   social: SanitizedSocial;

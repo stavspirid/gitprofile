@@ -118,7 +118,8 @@ const GitProfile = ({ config }: { config: Config }) => {
         // Use custom avatar from sanitizedConfig if provided, otherwise use GitHub avatar
         avatar: sanitizedConfig.avatar || data.avatar_url,
         name: data.name || ' ',
-        bio: data.bio || '',
+        // Use custom bio from sanitizedConfig if provided, otherwise use GitHub bio
+        bio: sanitizedConfig.bio || data.bio || '',
         location: data.location || '',
         company: data.company || '',
       });
@@ -136,7 +137,8 @@ const GitProfile = ({ config }: { config: Config }) => {
   }, [
     sanitizedConfig.github.username,
     sanitizedConfig.projects.github.display,
-    sanitizedConfig.avatar,
+    sanitizedConfig.avatar, // for custom avatar
+    sanitizedConfig.bio,    // for custom bio
     getGithubProjects,
   ]);
 
