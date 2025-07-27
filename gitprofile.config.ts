@@ -92,12 +92,14 @@ const CONFIG = {
   },
   skills: [
     'C/C++',
+    'FreeRTOS',
+    'ARM Assembly',
     'Verilog',
     'SystemVerilog',
     'Python',
     'MATLAB',
     'Bash/Shell',
-    'Virtuoso',
+    'VLSI Design',
     'KiCad',
     'Git',
     'Docker',
@@ -113,10 +115,16 @@ const CONFIG = {
   ],
   certifications: [
     {
-      name: 'Lorem ipsum',
-      body: 'Lorem ipsum dolor sit amet',
-      year: 'March 2022',
-      link: 'https://example.com',
+      name: 'Concurrent Engineering Workshop',
+      body: 'ESA Academy\'s Concurrent Engineering Workshop conducted at ESEC Galaxia in Belgium',
+      year: 'October 2024',
+      link: '',
+    },
+    {
+      name: 'ANSYS HFSS Training',
+      body: 'Introduction to: High Frequency Electromagnetics & Electronics Simulation Training with ANSYS HFSS',
+      year: 'May 2025',
+      link: '',
     },
   ],
   educations: [
@@ -135,22 +143,13 @@ const CONFIG = {
   ],
   publications: [
     {
-      title: 'Publication Title',
-      conferenceName: '',
-      journalName: 'Journal Name',
-      authors: 'John Doe, Jane Smith',
-      link: 'https://example.com',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-    {
-      title: 'Publication Title',
-      conferenceName: 'Conference Name',
+      title: 'preliminary design of primavera: preliminary investigation mission to achieve venusian reconnaissance in atmosphere',
+      conferenceName: 'IAC 2025',
       journalName: '',
-      authors: 'John Doe, Jane Smith',
-      link: 'https://example.com',
+      authors: '',
+      link: 'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/IAC_2025_Abstract.pdf',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'The abstract accepted at IAC 2025, which describes the Phase-0 design of a Venusian Mission, named PRIMAVERA during ESA Academy\'s Concurrent Engineering Workshop.',
     },
   ],
   // Display articles from your medium or dev account. (Optional)
