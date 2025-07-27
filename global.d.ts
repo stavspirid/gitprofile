@@ -127,6 +127,9 @@ interface Social {
    */
   researchGate?: string;
 
+  leetcode?: string;
+  gitlab?: string;
+
   /**
    * Facebook
    */
