@@ -182,11 +182,6 @@ const OrganizationItem: React.FC<{
  * @return {JSX.Element} The details card component.
  */
 const DetailsCard = ({ profile, loading, social, github }: Props) => {
-  // Temporary debug logs - remove after fixing
-  console.log('=== DETAILS CARD RENDERED ===');
-  console.log('Social object:', social);
-  console.log('Has gitlab?', !!social?.gitlab);
-  console.log('Has leetcode?', !!social?.leetcode);
   
   const renderSkeleton = () => {
     const array = [];
