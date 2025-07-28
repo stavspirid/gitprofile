@@ -6,7 +6,10 @@ const CONFIG = {
   },
   // Add custom avatar URL
   avatar: 'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/profile_avatar.jpg',
-  bio: 'Engineering and Space Enthusiast.\nCurrently an Embedded Software Engineer at SpaceDot.',
+  bio: [
+    'Engineering and Space Enthusiast.',
+    'Currently an Embedded Software Engineer at SpaceDot.',
+  ],
   /**
    * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
