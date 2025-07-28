@@ -54,10 +54,10 @@ const CONFIG = {
         {
           title: 'PRIMAVERA',
           description:
-            'Satellite Mission Phase-0 Design for Venusean Mission during ESA Acadmy\'s Concurrent Engineering Workshop.\n The project\'s paper was accepted at IAC 2025',
+            'Satellite Phase-0 Design for Venusean Mission during ESA Acadmy\'s Concurrent Engineering Workshop.\n The project\'s paper was accepted at IAC 2025',
           imageUrl:
             'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/PRIMAVERA_logo.jpg',
-          link: 'https://example.com',
+          link: 'https://www.linkedin.com/posts/stavros-spiridopoulos-669259238_esa-concurrentengineering-venusmission-activity-7243991943976812545-GfTP?utm_source=share&',
         },
       ],
     },
