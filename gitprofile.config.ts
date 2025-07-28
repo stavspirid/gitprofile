@@ -6,7 +6,7 @@ const CONFIG = {
   },
   // Add custom avatar URL
   avatar: 'https://raw.githubusercontent.com/stavspirid/portfolio/main/resources/profile_avatar.jpg',
-  bio: 'Engineering and Space Enthusiast. Currently an Embedded Software Engineer at SpaceDot.',
+  bio: 'Engineering and Space Enthusiast.\n Currently an Embedded Software Engineer at SpaceDot.',
   /**
    * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
@@ -35,6 +35,7 @@ const CONFIG = {
           'stavspirid/DICD-TUe-VLSI',
           'stavspirid/Helmetino',
           'gsklaven/MusePath',
+          'stavspirid/Constellation-Modeling',
         ], // List of repository names to display. example: ['arifszn/my-project1', 'arifszn/my-project2']
       },
     },
