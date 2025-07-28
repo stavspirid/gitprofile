@@ -79,7 +79,14 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
               </span>
             )}
           </h5>
-          <div className="mt-3 text-base-content font-mono">
+          <div className="text-base-content text-sm opacity-70 mb-1">
+            {loading ? (
+              skeleton({ widthCls: 'w-64', heightCls: 'h-4' })
+            ) : (
+              "Engineering and Space Enthusiast | Embedded Software Engineer"
+            )}
+          </div>
+          <div className="text-base-content font-mono text-sm opacity-60 whitespace-pre-line">
             {loading || !profile
               ? skeleton({ widthCls: 'w-48', heightCls: 'h-5' })
               : profile.bio}
